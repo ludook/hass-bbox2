@@ -22,7 +22,7 @@ The preferred way to setup the Bouygues Bbox platform is by enabling the discove
 
 Add Bouygues Bbox module via HACS
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=cyr-ius&repository=hass-bbox2&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ludook&repository=hass-bbox2&category=integration)
 
 Add your device via the Integration menu
 
