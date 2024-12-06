@@ -39,7 +39,7 @@ class BboxDataUpdateCoordinator(DataUpdateCoordinator):
         try:
             bbox_info = self.check_list(await self.bbox.device.async_get_bbox_info())
             devices = self.check_list(await self.bbox.lan.async_get_connected_devices())
-            wan_ip_stats = self.check_list(await self.bbox.wan.async_get_wan_ip_stats())
+            # wan_ip_stats = self.check_list(await self.bbox.wan.async_get_wan_ip_stats())
             # wan = self.check_list(await self.bbox.wan.async_get_wan_ip())
             # iptv_channels_infos = self.check_list(await self.bbox.iptv.async_get_iptv_info())
             # lan_stats = self.check_list(await self.bbox.lan.async_get_lan_stats())
@@ -49,7 +49,7 @@ class BboxDataUpdateCoordinator(DataUpdateCoordinator):
             return {
                 "info": bbox_info,
                 "devices": devices,
-                "wan_ip_stats": wan_ip_stats,
+                # "wan_ip_stats": wan_ip_stats,
                 # "wan": wan,
                 # "iptv_channels_infos": iptv_channels_infos,
                 # "lan_stats": lan_stats,
