@@ -1,16 +1,17 @@
+
 # Bouygues Bbox Router
 
-This a _custom component_ for [Home Assistant](https://www.home-assistant.io/).
+This a *custom component* for [Home Assistant](https://www.home-assistant.io/).
 The `bbox2` integration allows you to observe and control [Bbox router](http://www.bouygues.fr/).
 
 There is currently support for the following device types within Home Assistant:
 
-- Sensor with traffic metrics
-- Binary Sensor with wan status , public ip , private ip
-- Device tracker for connected devices (via option add wired devices)
-- Switch for enable/disable Wireless and Guest Wifi
-- Press button to restart box
-- Press button to ring phone
+* Sensor with traffic metrics
+* Binary Sensor with wan status , public ip , private ip
+* Device tracker for connected devices (via option add wired devices)
+* Switch for enable/disable Wireless and Guest Wifi
+* Press button to restart box
+* Press button to ring phone
 
 ![GitHub release](https://img.shields.io/github/release/Cyr-ius/hass-bbox2)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-bouygues.svg)](https://github.com/hacs/integration)
@@ -21,7 +22,7 @@ The preferred way to setup the Bouygues Bbox platform is by enabling the discove
 
 Add Bouygues Bbox module via HACS
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=cyr-ius&repository=hass-bbox2&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=ludook&repository=hass-bbox2&category=integration)
 
 Add your device via the Integration menu
 
@@ -29,7 +30,7 @@ Add your device via the Integration menu
 
 ### Initial setup
 
-You must have set a password for your Bbox router web administration page.
+You must have set a password for your Bbox router web administration page. 
 
 The first time Home Assistant will connect to your Bbox, you will need to specify the password of bbox.
 
@@ -37,7 +38,7 @@ The first time Home Assistant will connect to your Bbox, you will need to specif
 
 Only the routers with Bbox OS are supported:
 
-- Bbox (all versions)
+* Bbox (all versions)
 
 ## Presence Detection
 

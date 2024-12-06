@@ -1,36 +1,37 @@
 """Support for tracking."""
-
 from __future__ import annotations
 
 import logging
-from typing import Any
 
 from homeassistant.components.device_tracker import SourceType
 from homeassistant.components.device_tracker.config_entry import ScannerEntity
 from homeassistant.components.sensor import SensorEntityDescription
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import BBoxConfigEntry
 from .const import DOMAIN
-from .coordinator import BboxDataUpdateCoordinator
 from .entity import BboxEntity
 
 _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: BBoxConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
     """Set up sensor."""
-    coordinator = entry.runtime_data
+    coordinator = hass.data[DOMAIN][entry.entry_id]
+
     description = SensorEntityDescription(key="tracker", translation_key="tracker")
+
     devices = coordinator.data.get("devices", {}).get("hosts", {}).get("list", [])
+
     entities = [
         BboxDeviceTracker(coordinator, description, device)
         for device in devices
         if device.get("macaddress")
     ]
+
     async_add_entities(entities)
 
 
@@ -40,12 +41,7 @@ class BboxDeviceTracker(BboxEntity, ScannerEntity):
     _attr_has_entity_name = True
     _attr_entity_registry_enabled_default = False
 
-    def __init__(
-        self,
-        coordinator: BboxDataUpdateCoordinator,
-        description: SensorEntityDescription,
-        device: dict[str, Any],
-    ) -> None:
+    def __init__(self, coordinator, description, device) -> None:
         """Initialize."""
         super().__init__(coordinator, description)
         self._device = device

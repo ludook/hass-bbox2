@@ -1,5 +1,4 @@
 """Support for Bbox binary sensors."""
-
 from __future__ import annotations
 
 import logging
@@ -8,10 +7,11 @@ from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
     BinarySensorEntity,
 )
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from . import BBoxConfigEntry
+from .const import DOMAIN
 from .entity import BboxEntity
 from .helpers import BboxBinarySensorDescription, finditem
 
@@ -28,13 +28,15 @@ SENSOR_TYPES: tuple[BboxBinarySensorDescription, ...] = (
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: BBoxConfigEntry, async_add_entities: AddEntitiesCallback
+    hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback
 ) -> None:
     """Set up sensor."""
-    coordinator = entry.runtime_data
+    coordinator = hass.data[DOMAIN][entry.entry_id]
+
     entities = [
         BboxBinarySensor(coordinator, description) for description in SENSOR_TYPES
     ]
+
     async_add_entities(entities)
 
 
