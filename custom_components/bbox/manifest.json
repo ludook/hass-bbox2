@@ -1,16 +1,16 @@
 {
-  "domain": "bbox2",
+  "domain": "bbox",
   "name": "Bouygues Bbox",
-  "codeowners": ["@cyr-ius"],
+  "codeowners": ["ludook"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/cyr-ius/hass-bbox2",
+  "documentation": "https://github.com/ludook/hass-bbox2",
   "homekit": {},
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/cyr-ius/hass-bbox2/issues",
+  "issue_tracker": "https://github.com/ludook/hass-bbox2/issues",
   "loggers": ["bboxpy"],
   "requirements": ["bboxpy==1.1.5"],
   "ssdp": [],
-  "version": "1.3.3",
+  "version": "1.3.7",
   "zeroconf": []
 }
